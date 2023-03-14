@@ -3,12 +3,19 @@
 <html lang="pt-br" class="h-100">
 
 <head>
+    {% block header %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Gabriel Moya">
+    {% endblock %}
+    <title>
+        {% block title %}
 
-    <title>Sticky Footer Navbar Template · Bootstrap v5.3</title>
+        Crypto-Wallet - Pagina Inicial
+        
+        {% endblock %}
+    </title>
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 
@@ -18,6 +25,7 @@
 
     <header>
         <!-- Fixed navbar -->
+        {% block nav-bar %}
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Fixed navbar</a>
@@ -28,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'pagina-inicial' %}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -44,10 +52,12 @@
                 </div>
             </div>
         </nav>
+        {% endblock %}
     </header>
 
     <!-- Begin page content -->
     <main class="flex-shrink-0">
+        {% block conteudo %}
         <div class="container">
             <h1 class="mt-5">Sticky footer with fixed navbar</h1>
             <p class="lead">Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and
@@ -55,17 +65,24 @@
                     class="small">main &gt; .container</code>.</p>
             <p>Back to <a href="% static 'css/sticky-footer-navbar.css' %">the default sticky footer</a> minus the navbar.</p>
         </div>
+        {% endblock %}
     </main>
 
     <footer class="footer mt-auto py-3 bg-light">
+        {% block footer%}
         <div class="container">
             <span class="text-muted">Place sticky footer content here.</span>
         </div>
+        {% endblock %}
     </footer>
 
+    <img src="{% static 'imagem/perfil/moya.png'%}" alt="">
 
     <script src="% static 'js/bootstrap.bundle.min.js' %"></script>
 
+    {% block scripts%}
+
+    {% endblock %}
 
 </body>
 
